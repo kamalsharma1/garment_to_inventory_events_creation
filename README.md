@@ -17,3 +17,4 @@ Step2:
 
 ### Info
 Backup tables are created in the [BACKUP_DATASET_NAME] bigquery dataset.
+Ticket: https://urbnit.atlassian.net/browse/TYP-3547
