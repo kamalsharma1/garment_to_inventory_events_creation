@@ -3,7 +3,7 @@ INSERT INTO `INVENTORY_EVENTS_TABLE`
 With create_events as (
   SELECT *
   FROM
-    `rental-dev.test_garment_to_inventory_events.garment_events`
+    `GARMENT_EVENTS_TABLE`
   WHERE
     event_subtype IN ("garment_event","garment_create")
     AND locationId IS NOT NULL and locationDesc IS NOT NULL
@@ -26,7 +26,7 @@ With create_events as (
     (
       SELECT *
       FROM
-        `rental-dev.test_garment_to_inventory_events.garment_events`
+        `GARMENT_EVENTS_TABLE`
       WHERE
         event_subtype =("garment_delete") 
         AND locationId IS NOT NULL and locationDesc IS NOT NULL
