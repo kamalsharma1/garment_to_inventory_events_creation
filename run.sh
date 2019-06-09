@@ -1,8 +1,4 @@
 #!/bin/bash
-
-set -o errexit \
-    -o pipefail \
-    -o xtrace
     
 declare -r PROJECT_ID=$1
 [[ -z "${PROJECT_ID// }" ]] && exit
@@ -42,6 +38,11 @@ backup_garments_data_table_name=${PROJECT_ID}:${BACKUP_DATASET_NAME}.${GARMENTS_
 insert_query=$(readfile $create_query_file_name)
 insert_query=$(replace_string "$insert_query" "GARMENT_EVENTS_TABLE" $garments_data_table_name)
 insert_query=$(replace_string "$insert_query" "INVENTORY_EVENTS_TABLE" $inventory_data_table_name)
+
+if [[ $(bq ls --dataset_id ${PROJECT_ID}:${INVENTORY_DATASET_NAME} |grep ${INVENTORY_TABLE_NAME}) = *${INVENTORY_TABLE_NAME}*  ]]; then
+  echo "Error: Table already exist, delete $INVENTORY_TABLE_NAME table from dataset and try again."
+  exit
+fi
 
 # Backup garment table in new table --> creation of backup table 
 copy_table ${PROJECT_ID}:${GARMENTS_DATASET_NAME}.${GARMENTS_TABLE_NAME} $backup_garments_data_table_name
