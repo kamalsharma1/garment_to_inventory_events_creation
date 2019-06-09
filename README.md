@@ -1,4 +1,4 @@
-# garment table backup and garment events to invetory events table creation
+# Garment events to invetory events table creation
 Bash script to create invetory events table using garment events in a google big query
 
 ## Working on
@@ -17,4 +17,6 @@ Step2:
 
 ### Info
 Backup tables are created in the [BACKUP_DATASET_NAME] bigquery dataset.
-Ticket: https://urbnit.atlassian.net/browse/TYP-3547
+
+### Ticket
+https://urbnit.atlassian.net/browse/TYP-3547
