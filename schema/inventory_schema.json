@@ -1,0 +1,68 @@
+[
+  {
+    "description": "The id of the purchase order (should tie to IP)", 
+    "mode": "NULLABLE", 
+    "name": "po_id", 
+    "type": "STRING"
+  }, 
+  {
+    "description": "Garment ids within the carton", 
+    "mode": "REQUIRED", 
+    "name": "garment_id", 
+    "type": "STRING"
+  }, 
+  {
+    "description": "The style + color + size level of product id", 
+    "mode": "REQUIRED", 
+    "name": "sku_id", 
+    "type": "STRING"
+  }, 
+  {
+    "description": "The highest level type of event (ex: initial receipt, shipped, etc.)", 
+    "mode": "REQUIRED", 
+    "name": "event_type", 
+    "type": "STRING"
+  }, 
+  {
+    "description": "The next level down type of event (ex: carton_receipt)", 
+    "mode": "REQUIRED", 
+    "name": "event_subtype", 
+    "type": "STRING"
+  }, 
+  {
+    "description": "date + time of the event", 
+    "mode": "REQUIRED", 
+    "name": "event_datetime", 
+    "type": "DATETIME"
+  }, 
+  {
+    "description": "Cost of the individual unit", 
+    "mode": "NULLABLE", 
+    "name": "unit_cost", 
+    "type": "FLOAT"
+  }, 
+  {
+    "description": "Location id within the distribution center", 
+    "mode": "REQUIRED", 
+    "name": "location_id", 
+    "type": "STRING"
+  }, 
+  {
+    "description": "Location description within the distribution center", 
+    "mode": "REQUIRED", 
+    "name": "location_desc", 
+    "type": "STRING"
+  }, 
+  {
+    "description": "Expected wears", 
+    "mode": "REQUIRED", 
+    "name": "expected_rentals", 
+    "type": "INTEGER"
+  }, 
+  {
+    "description": "Quantity received", 
+    "mode": "REQUIRED", 
+    "name": "quantity_received", 
+    "type": "INTEGER"
+  }
+]
