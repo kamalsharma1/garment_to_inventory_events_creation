@@ -24,7 +24,7 @@ source ./bq.sh
 create_query_file_name=queries/garments_to_inventory_events_query.sql
 inventory_table_schema=schema/inventory_schema.json
 
-# backup data postfix
+# backup data table name postfix
 backup_table_name_postfix=_backup
 
 # full table name with project id, dataset and table name
@@ -50,5 +50,5 @@ copy_table ${PROJECT_ID}:${GARMENTS_DATASET_NAME}.${GARMENTS_TABLE_NAME} $backup
 # create inventory events table using schema
 bq mk --table ${PROJECT_ID}:${INVENTORY_DATASET_NAME}.${INVENTORY_TABLE_NAME} $inventory_table_schema
 
-# execute query
+# execute insert query
 execute_query "$insert_query"
