@@ -6,21 +6,9 @@ function run(){
     eval "$command"
 }
 
-# copy table from one dataset to another
-function copy_table(){
-	cmd="bq cp $1 $2"
-	run "$cmd"
-}
-
-# create a table from output of a query result
-function create_table_by_result(){
-	cmd="bq query --destination_table $1 --replace --use_legacy_sql=false '"$2"'"
-	run "$cmd"
-}
-
 # Execute a BQ sql query
 function execute_query(){
-	cmd="bq query --use_legacy_sql=false '"$1"'"
+	cmd="bq query --use_legacy_sql=false '$1'"
 	run "$cmd"
 }
 
@@ -35,6 +23,7 @@ function replace_string(){
 # Read file using file path
 function readfile(){
 	local file_path=$1
-	local data=`cat "$file_path"`
+	local data
+	data=$(cat "$file_path")
 	echo "$data"
 }
